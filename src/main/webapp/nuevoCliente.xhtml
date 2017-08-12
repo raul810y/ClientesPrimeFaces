@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="template.xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="content">
+        <h:form>
+            
+            <h:messages  globalOnly="true" tooltip="true" showDetail="true"/>
+            <h:panelGrid columns="2">
+                <h:outputText value="Nombre: "/>
+                <h:inputText value="#{clienteBean.persona.nombre}"></h:inputText>
+                <h:outputText value="Apellido:"/>
+                <h:inputText value="#{clienteBean.persona.apellido}"></h:inputText>
+                <h:outputText value="Ciudad:"/>
+                <h:inputText value="#{clienteBean.persona.ciudad}"></h:inputText>
+                <h:outputText value="Estado:"/>
+                <h:selectOneMenu value="Estado:" >
+                    <f:selectItem itemLabel="SELECCIONAR"></f:selectItem>
+                    <f:selectItems value="#{clienteBean.estados}" var="edo"  ></f:selectItems>
+                    <f:ajax event="change" listener="#{clienteBean.cargarMunicipios}"  render="cmbMun" />
+                </h:selectOneMenu>
+                
+                <h:outputText  value="Municipio:"/>
+                 <h:selectOneMenu id="cmbMun" value="Municipio:">
+                    <f:selectItem itemLabel="SELECCIONAR"></f:selectItem>
+                    <f:selectItems value="#{clienteBean.municipios}" var="mun"></f:selectItems>
+                </h:selectOneMenu>
+                
+            </h:panelGrid>
+            <h:commandButton value="Enviar"></h:commandButton>
+            <div style="overflow: auto; width: 350px; height: 200px">
+            <h:dataTable value="#{clienteBean.clientes}" var="cliente">
+                <h:column >
+                    <f:facet name="header">Nombre</f:facet>
+                    #{cliente.nombre}
+                </h:column>
+                <h:column >
+                    <f:facet name="header">Apellido</f:facet>
+                    #{cliente.apellido}
+                </h:column>
+                <h:column >
+                    <f:facet name="header">Ciudad</f:facet>
+                    #{cliente.ciudad}
+                </h:column>
+            </h:dataTable>
+            </div>
+        </h:form>
+        
+        
+    </ui:define>
+</ui:composition>
+
