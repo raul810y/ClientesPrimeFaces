@@ -8,9 +8,8 @@ package com.mycompany.dto;
 /**
  *
  * @author Oracle D77738
- * 
  */
-public class Persona {
+public class Persona3 {
     private String nombre;
     private String apellido;
     private String ciudad;
