@@ -13,6 +13,7 @@ public class Persona4 {
 
     private String modificado2;
     private String modificado;
+    private String modificado4;
     private String nombre;
     private String apellido;
     private String ciudad;
