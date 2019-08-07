@@ -11,8 +11,8 @@ package com.mycompany.dto;
  */
 public class Persona4 {
 
-
     private String modificado2;
+    private String modificado;
     private String nombre;
     private String apellido;
     private String ciudad;
