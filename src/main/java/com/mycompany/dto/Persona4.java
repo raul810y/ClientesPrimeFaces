@@ -10,6 +10,9 @@ package com.mycompany.dto;
  * @author Oracle D77738
  */
 public class Persona4 {
+
+
+    private String modificado2;
     private String nombre;
     private String apellido;
     private String ciudad;
